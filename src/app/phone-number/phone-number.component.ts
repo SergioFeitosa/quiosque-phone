@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import firebase from 'firebase/compat/app'
-import 'firebase/compat/auth'
-import 'firebase/compat/firestore'
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { Component, OnInit, NgZone } from '@angular/core';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
 var config = {
   apiKey: "AIzaSyAc9T6jV7QRc2sZMeQ3wAFxO2u-SH7dS_A",
@@ -14,6 +13,7 @@ var config = {
   appId: "1:977420644755:web:d49bb641a0a9ea7cef3866"
 }
 
+
 @Component({
   selector: 'app-phone-number',
   templateUrl: './phone-number.component.html',
@@ -23,11 +23,32 @@ export class PhoneNumberComponent implements OnInit {
 
   phoneNumber: any;
   reCaptchaVerifier: any;
+  // tslint:disable-next-line:quotemark
+  // tslint:disable-next-line:member-ordering
+  displayCode = 'none';
 
-  constructor(private router: Router) { }
+  otp!: string;
+  verify: any;
+  constructor(private router: Router, private ngZone: NgZone) {}
+
+  configCode = {
+    allowNumbersOnly: true,
+    length: 6,
+    isPasswordInput: false,
+    disableAutoFocus: false,
+    placeholder: '',
+    inputStyles: {
+      width: '25px',
+      height: '25px',
+    },
+  };
 
   ngOnInit() {
-    firebase.initializeApp(config)
+    firebase.initializeApp(config),
+    this.verify = JSON.parse(localStorage.getItem('verificationId') || '{}');
+    console.log(this.verify);
+    this.displayCode = 'none';
+
   }
 
   getOTP() {
@@ -40,6 +61,7 @@ export class PhoneNumberComponent implements OnInit {
         localStorage.setItem('verificationId',
         JSON.stringify(confirmationResult.verificationId))
         this.router.navigate(['/code'])
+        //this.displayCode = 'block';
       }).catch((error) => {
         alert(error.message)
         setTimeout(() => {
@@ -47,4 +69,6 @@ export class PhoneNumberComponent implements OnInit {
         }, 5000);
       })
   }
+
 }
+

@@ -1,5 +1,10 @@
 export const environment = {
   production: true,
+  ApiURL : 'http://localhost:8000',
+  telefone: 0,
+  codigo: 123,
+  local: 'mesa001',
+  modulo: 'quiosque',
   firebase: {
     apiKey: "AIzaSyAc9T6jV7QRc2sZMeQ3wAFxO2u-SH7dS_A",
     authDomain: "quiosque-phone.firebaseapp.com",
