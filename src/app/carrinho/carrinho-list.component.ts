@@ -54,7 +54,6 @@ export class CarrinhoListComponent implements OnInit {
 
     // this.modulo = 'Pedido';
     // this.local = environment.local;
-    console.log('primeiro log');
     this.carrinho.quantidade = 1;
 
     environment.fundoColoridoCardapio = false;
@@ -63,7 +62,7 @@ export class CarrinhoListComponent implements OnInit {
     environment.fundoColoridoEntrega = false;
     environment.fundoColoridoConta = false;
 
-    if (+environment.telefone === 99999999999 || +environment.telefone === 99999999997) {
+    if (environment.telefone === 99999999999 || environment.telefone === 99999999997) {
 
       this.carrinhoService.read().subscribe(carrinhos => {
         this.carrinhos = carrinhos;
@@ -90,28 +89,21 @@ export class CarrinhoListComponent implements OnInit {
 
       });
     }
-    console.log('ultimo log');
   }
 
     // tslint:disable-next-line:typedef
     minus() {
 
-      console.log('passei minus');
       if (this.carrinho.quantidade !== 1) {
-        console.log('passei minus2');
         this.carrinho.quantidade--;
-        console.log('passei minus3 == ' + this.carrinho.quantidade);
         this.atualizarCarrinho(this.carrinho);
       }
     }
 
     // tslint:disable-next-line:typedef
     plus() {
-      console.log('passei plus');
       if (this.carrinho.quantidade !== 10) {
-        console.log('passei plus2');
         this.carrinho.quantidade++;
-        console.log('passei plus3 == ' + this.carrinho.quantidade);
         this.atualizarCarrinho(this.carrinho);
       }
     }
@@ -123,7 +115,7 @@ export class CarrinhoListComponent implements OnInit {
   set filter(value: string) {
     this._filterBy = value;
 
-    if (+environment.telefone === 99999999999 || +environment.telefone === 99999999997) {
+    if (environment.telefone === 99999999999 || environment.telefone === 99999999997) {
 
       this.filteredCarrinhos =
         this.carrinhos

@@ -49,7 +49,7 @@
             type="text"
             style='color: red; width: 3em;'
             (ngModelChange)="atualizarPedido(pedido)" class="nav-link"
-            [disabled]=" i < 3 && (pedido.telefone != +'99999999999' && pedido.telefone != +'99999999998') ? true : false">
+            [disabled]=" i < 3 && (pedido.telefone != 99999999999 && pedido.telefone != 99999999998) ? true : false">
           <a style="width: 2em; margin-top: 0.5em" (click)="plus()"><i
               class="fa
               fa-plus" style="color:red"></i></a>
@@ -65,7 +65,7 @@
           <textarea [(ngModel)]="pedido.observacao" type="text" style='color:
             red'
             (blur)="atualizarPedido(pedido)" class="nav-link"
-            [disabled]=" i < 3 && (telefone != +'99999999999' && telefone != +'99999999998') ? true : false">
+            [disabled]=" i < 3 && (telefone != 99999999999 && telefone != 99999999998) ? true : false">
           </textarea>
           </td>
 
@@ -73,20 +73,20 @@
         <td>{{ pedido.dataCriacao | date:'hh:mm:ss'}} </td>
         <td class="text-center">
           <button (click)="openPopup( pedido.id! )"
-                  [disabled]=" i < 3 && (telefone != +'99999999999' && telefone != +'99999999998') ? true : false">
+                  [disabled]=" i < 3 && (telefone != 99999999999 && telefone != 99999999998) ? true : false">
             <img src='/assets/images/lupa.jpg' class="figure-img img-fluid
               rounded" alt="..." width="25"
               height="25"
               >
           </button>
           <button routerLink="/pedido/delete/{{ pedido.id }}"
-                  [disabled]=" i < 3 && (telefone != +'99999999999' && telefone != +'99999999998') ? true : false">
+                  [disabled]=" i < 3 && (telefone != 99999999999 && telefone != 99999999998) ? true : false">
             <img src='/assets/images/botao-cancelar.jpg' class="figure-img
               img-fluid rounded" alt="..." width="25"
               height="25">
           </button>
           <button (click)="entregaCreate( pedido.id! )"
-                  [disabled]=" (telefone == +'99999999999' || telefone == +'99999999998') ? false : true">
+                  [disabled]=" (telefone == 99999999999 || telefone == 99999999998) ? false : true">
             <img src='/assets/images/garcon.jpg' class="figure-img img-fluid
               rounded" alt="..." width="25"
               height="25">
@@ -125,7 +125,7 @@
         <td><input [(ngModel)]="pedido.quantidade" type="text"
                    style='color: red; width: 60px'
                    (ngModelChange)="atualizarPedido(pedido)" class="nav-link"
-                   [disabled]=" i < 3 && (pedido.telefone != +'99999999999' && pedido.telefone != +'99999999998') ? true : false">
+                   [disabled]=" i < 3 && (pedido.telefone != 99999999999 && pedido.telefone != 99999999998) ? true : false">
         </td>
 
         <td>{{ pedido.produto.nome }} </td>
@@ -135,27 +135,27 @@
         <td><input [(ngModel)]="pedido.observacao" type="text" style='color:
             red'
             (ngModelChange)="atualizarPedido(pedido)" class="nav-link"
-            [disabled]=" i < 3 && (telefone != +'99999999999' && telefone != +'99999999998') ? true : false">
+            [disabled]=" i < 3 && (telefone != 99999999999 && telefone != 99999999998) ? true : false">
           </td>
 
         <td>{{ pedido.isencao }} </td>
         <td>{{ pedido.dataCriacao | date:'hh:mm:ss'}} </td>
         <td class="text-center">
           <button (click)="openPopup( pedido.id! )"
-                  [disabled]=" i < 3 && (telefone != +'99999999999' && telefone != +'99999999998') ? true : false">
+                  [disabled]=" i < 3 && (telefone != 99999999999 && telefone != 99999999998) ? true : false">
             <img src='/assets/images/lupa.jpg' class="figure-img img-fluid
               rounded" alt="..." width="25"
               height="25"
               >
           </button>
           <button routerLink="/pedido/delete/{{ pedido.id }}"
-                  [disabled]=" i < 3 && (telefone != +'99999999999' && telefone != +'99999999998') ? true : false">
+                  [disabled]=" i < 3 && (telefone != 99999999999 && telefone != 99999999998) ? true : false">
             <img src='/assets/images/botao-cancelar.jpg' class="figure-img
               img-fluid rounded" alt="..." width="25"
               height="25">
           </button>
           <button (click)="entregaCreate( pedido.id!)"
-                  [disabled]=" (telefone == +'99999999999' || telefone == +'99999999998') ? false : true">
+                  [disabled]=" (telefone == 99999999999 || telefone == 99999999998) ? false : true">
             <img src='/assets/images/garcon.jpg' class="figure-img img-fluid
               rounded" alt="..." width="25"
               height="25">
@@ -195,7 +195,7 @@
         <td><input [(ngModel)]="pedido.quantidade" type="text"
                    style='color: red; width: 60px'
                    (blur)="atualizarPedido(pedido)" class="nav-link"
-                   [disabled]=" i < 3 && (pedido.telefone != +'99999999999' && pedido.telefone != +'99999999998') ? true : false">
+                   [disabled]=" i < 3 && (pedido.telefone != 99999999999 && pedido.telefone != 99999999998) ? true : false">
         </td>
 
         <td>{{ pedido.produto.nome }} </td>
@@ -205,27 +205,27 @@
         <td><input [(ngModel)]="pedido.observacao" type="text" style='color:
             red'
             (ngModelChange)="atualizarPedido(pedido)" class="nav-link"
-            [disabled]=" i < 3 && (telefone != +'99999999999' && telefone != +'99999999998') ? true : false">
+            [disabled]=" i < 3 && (telefone != 99999999999 && telefone != 99999999998) ? true : false">
           </td>
 
         <td>{{ pedido.isencao }} </td>
         <td>{{ pedido.dataCriacao | date:'hh:mm:ss'}} </td>
         <td class="text-center">
           <button (click)="openPopup( pedido.id! )"
-                  [disabled]=" i < 3 && (telefone != +'99999999999' && telefone != +'99999999998') ? true : false">
+                  [disabled]=" i < 3 && (telefone != 99999999999 && telefone != 99999999998) ? true : false">
             <img src='/assets/images/lupa.jpg' class="figure-img img-fluid
               rounded" alt="..." width="25"
               height="25"
               >
           </button>
           <button routerLink="/pedido/delete/{{ pedido.id }}"
-                  [disabled]=" i < 3 && (telefone != +'99999999999' && telefone != +'99999999998') ? true : false">
+                  [disabled]=" i < 3 && (telefone != 99999999999 && telefone != 99999999998) ? true : false">
             <img src='/assets/images/botao-cancelar.jpg' class="figure-img
               img-fluid rounded" alt="..." width="25"
               height="25">
           </button>
           <button (click)="entregaCreate( pedido.id! )"
-                  [disabled]=" (telefone == +'99999999999' || telefone == +'99999999998') ? false : true">
+                  [disabled]=" (telefone == 99999999999 || telefone == 99999999998) ? false : true">
             <img src='/assets/images/garcon.jpg' class="figure-img img-fluid
               rounded" alt="..." width="25"
               height="25">
@@ -261,20 +261,20 @@
         <td>{{ pedido.produto.nome }} </td>
         <td class="text-center">
           <button (click)="openPopup( pedido.id! )"
-                  [disabled]=" i < 3 && (telefone != +'99999999999' && telefone != +'99999999998') ? true : false">
+                  [disabled]=" i < 3 && (telefone != 99999999999 && telefone != 99999999998) ? true : false">
             <img src='/assets/images/lupa.jpg' class="figure-img img-fluid
               rounded" alt="..." width="25"
               height="25"
               >
           </button>
           <button routerLink="/pedido/delete/{{ pedido.id }}"
-                  [disabled]=" i < 3 && (telefone != +'99999999999' && telefone != +'99999999998') ? true : false">
+                  [disabled]=" i < 3 && (telefone != 99999999999 && telefone != 99999999998) ? true : false">
             <img src='/assets/images/botao-cancelar.jpg' class="figure-img
               img-fluid rounded" alt="..." width="25"
               height="25">
           </button>
           <button (click)="entregaCreate( pedido.id! )"
-                  [disabled]=" (telefone == +'99999999999' || telefone == +'99999999998') ? false : true">
+                  [disabled]=" (telefone == 99999999999 || telefone == 99999999998) ? false : true">
             <img src='/assets/images/garcon.jpg' class="figure-img img-fluid
               rounded" alt="..." width="25"
               height="25">
@@ -310,20 +310,20 @@
         <td>{{ pedido.produto.nome }} </td>
         <td class="text-center">
           <button (click)="openPopup( pedido.id! )"
-                  [disabled]=" i < 3 && (telefone != +'99999999999' && telefone != +'99999999998') ? true : false">
+                  [disabled]=" i < 3 && (telefone != 99999999999 && telefone != 99999999998) ? true : false">
             <img src='/assets/images/lupa.jpg' class="figure-img img-fluid
               rounded" alt="..." width="25"
               height="25"
               >
           </button>
           <button routerLink="/pedido/delete/{{ pedido.id }}"
-                  [disabled]=" i < 3 && (telefone != +'99999999999' && telefone != +'99999999998') ? true : false">
+                  [disabled]=" i < 3 && (telefone != 99999999999 && telefone != 99999999998) ? true : false">
             <img src='/assets/images/botao-cancelar.jpg' class="figure-img
               img-fluid rounded" alt="..." width="25"
               height="25">
           </button>
           <button (click)="entregaCreate( pedido.id! )"
-                  [disabled]=" (telefone == +'99999999999' || telefone == +'99999999998') ? false : true">
+                  [disabled]=" (telefone == 99999999999 || telefone == 99999999998) ? false : true">
             <img src='/assets/images/garcon.jpg' class="figure-img img-fluid
               rounded" alt="..." width="25"
               height="25">
@@ -367,7 +367,7 @@
       </div>
       <div class="modal-body row">
         <span style='font-weight: bolder;'>Nome:</span>
-        <span>{{ produto.nome }}</span>
+        <span>{{produto.nome}}</span>
       </div>
       <div class="modal-body row">
         <span style='font-weight: bolder;'>Observação:</span>
@@ -380,15 +380,15 @@
       </div>
       <div class="modal-body row">
         <span style='font-weight: bolder;'>Local:</span>
-        <span> {{ pedido.local }} </span>
+        <span> {{pedido.local}} </span>
       </div>
       <div class="modal-body row">
         <span style='font-weight: bolder;'>Preço:</span>
-        <span>{{ produto.preco }} </span>
+        <span>{{produto.preco}} </span>
       </div>
       <div class="modal-body row">
         <span style='font-weight: bolder;'>Tempo de Preparação:</span>
-        <span>{{ produto.tempoPreparacao }} </span>
+        <span>{{produto.tempoPreparacao}} </span>
       </div>
 
       <div class="modal-body">

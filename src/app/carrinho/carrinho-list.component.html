@@ -8,7 +8,7 @@
 </div> -->
 <div class='form-group row container mt-5' style='margin-bottom: 1em;'>
   <label class='col-sm-2 col-form-label' style="width: 6em;">Filter By:</label>
-  <input [( ngModel )]='filter' class='form-control' style="width: 15em;">
+  <input name="prop" [(ngModel)]='filter' class='form-control' style="width: 15em;">
 </div>
 
 <!-- DESKTOP -->
@@ -206,7 +206,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content" style='background-color:rgb(246, 253, 232)'>
       <div class="modal-header" style='background-color:rgb(225, 240, 252)'>
-        <button routerLink='/carrinho/delete/' + {{ carrinho.id! }}>
+        <button routerLink='/carrinho/delete/{{ carrinho.id! }}'>
           Deletar
         </button>
         <button (click)="pedidoCreate( carrinho.id! );">
@@ -252,7 +252,7 @@
         <a style="width: 2em; margin-top: 0.5em" (click)="minus()"><i
             class="fa
             fa-minus" style="color:red"></i></a>
-        <input style="width: 3em;" [( ngModel )]='carrinho.quantidade'
+        <input style="width: 3em;" name="prp" [(ngModel)]='carrinho.quantidade'
           class='form-control'>
         <a style="width: 2em; margin-top: 0.5em" (click)="plus()"><i
             class="fa
@@ -262,7 +262,7 @@
         <div class='form-group row container'>
           <span style='font-weight: bolder; color:blue'>Observações:</span>
           <div>
-            <textarea [( ngModel )]='carrinho.observacao'
+            <textarea  [(ngModel)]='carrinho.observacao'
               class='form-control'
               (ngModelChange)="atualizarCarrinho(carrinho)"></textarea>
           </div>
@@ -290,7 +290,7 @@
       <div class="modal-content" style='background-color:rgb(225, 240,
         252)'>
         <div class="modal-header" style='background-color:rgb(225, 240, 252)'>
-          <button routerLink = '/carrinho/delete/' + {{ carrinho.id! }}>
+          <button routerLink = '/carrinho/delete/{{ carrinho.id! }}'>
             Deletar
           </button>
           <button (click)="pedidoCreate( carrinho.id! );">

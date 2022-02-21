@@ -44,7 +44,7 @@ export class EntregaListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.telefone = +environment.telefone;
+    this.telefone = environment.telefone;
     // this.modulo = 'Entrega';
     // this.local = environment.local;
 
@@ -54,7 +54,7 @@ export class EntregaListComponent implements OnInit {
     environment.fundoColoridoEntrega = true;
     environment.fundoColoridoConta = false;
 
-    if (+environment.telefone === 99999999999 || +environment.telefone === 99999999996) {
+    if (environment.telefone === 99999999999 || environment.telefone === 99999999996) {
 
       this.entregaService.read().subscribe(entregas => {
         this.entregas = entregas;
@@ -80,7 +80,7 @@ export class EntregaListComponent implements OnInit {
   set filter(value: string) {
     this._filterBy = value;
 
-    if (+environment.telefone === 99999999999 || +environment.telefone === 99999999996) {
+    if (environment.telefone === 99999999999 || environment.telefone === 99999999996) {
       this.filteredEntregas =
         this.entregas
           .filter((entrega: Entrega) => entrega.pedido.produto.nome.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1);

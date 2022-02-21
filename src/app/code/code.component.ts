@@ -40,8 +40,8 @@ export class CodeComponent implements OnInit {
     disableAutoFocus: false,
     placeholder: '',
     inputStyles: {
-      width: '50px',
-      height: '50px',
+      width: '35px',
+      height: '35px',
     },
   };
 
@@ -71,7 +71,7 @@ export class CodeComponent implements OnInit {
         this.ngZone.run(() => {
           environment.login = true;
 
-          this.router.navigate(['']);
+          this.router.navigate(['carrinho']);
         });
       })
       .catch((error) => {

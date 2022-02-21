@@ -11,6 +11,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { Router } from '@angular/router';
+import { interval } from 'rxjs';
 
 const config = {
   apiKey: 'AIzaSyAc9T6jV7QRc2sZMeQ3wAFxO2u-SH7dS_A',
@@ -166,10 +167,8 @@ export class ProdutoListComponent implements OnInit {
         // this.router.navigate(['/code']);
         // this.validarCodigo(this.produto.id);
       }).catch((error) => {
-        alert(error.message),
-        setTimeout(() => {
-          window.location.reload();
-        }, 5000);
+        alert(error.message);
+        interval(5000).subscribe(n => window.location.reload());
       });
   }
 
