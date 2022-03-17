@@ -64,6 +64,7 @@ export class ContaListComponent implements OnInit {
     environment.fundoColoridoCardapio = false;
     environment.fundoColoridoPedido = false;
     environment.fundoColoridoCozinha = false;
+    environment.fundoColoridoBar = false;
     environment.fundoColoridoEntrega = false;
     environment.fundoColoridoConta = true;
 

@@ -18,6 +18,7 @@ export class CaminhoMenuComponent implements OnInit {
   fundoColoridoCardapio = environment.fundoColoridoCardapio;
   fundoColoridoPedido = environment.fundoColoridoPedido;
   fundoColoridoCozinha = environment.fundoColoridoCozinha;
+  fundoColoridoBar = environment.fundoColoridoBar;
   fundoColoridoEntrega = environment.fundoColoridoEntrega;
   fundoColoridoConta = environment.fundoColoridoConta;
 
@@ -39,6 +40,7 @@ export class CaminhoMenuComponent implements OnInit {
     this.fundoColoridoCardapio = environment.fundoColoridoCardapio;
     this.fundoColoridoPedido = environment.fundoColoridoPedido;
     this.fundoColoridoCozinha = environment.fundoColoridoCozinha;
+    this.fundoColoridoBar = environment.fundoColoridoBar;
     this.fundoColoridoEntrega = environment.fundoColoridoEntrega;
     this.fundoColoridoConta = environment.fundoColoridoConta;
   }

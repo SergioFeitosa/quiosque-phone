@@ -85,6 +85,7 @@ export class CardapioPrincipalComponent implements OnInit {
     environment.fundoColoridoCardapio = true;
     environment.fundoColoridoPedido = false;
     environment.fundoColoridoCozinha = false;
+    environment.fundoColoridoBar = false;
     environment.fundoColoridoEntrega = false;
     environment.fundoColoridoConta = false;
 

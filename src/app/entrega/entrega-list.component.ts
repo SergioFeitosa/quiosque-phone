@@ -56,6 +56,7 @@ export class EntregaListComponent implements OnInit {
     environment.fundoColoridoCardapio = false;
     environment.fundoColoridoPedido = false;
     environment.fundoColoridoCozinha = false;
+    environment.fundoColoridoBar = false;
     environment.fundoColoridoEntrega = true;
     environment.fundoColoridoConta = false;
 

@@ -1,9 +1,8 @@
 import { environment } from 'src/environments/environment';
-import { ProdutoService } from './../produto/produto.service';
-import { Produto } from './../produto/produto';
+import { Produto } from '../produto/produto';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PedidoService } from './pedido.service';
-import { Pedido } from './pedido';
+import { PedidoService } from '../pedido/pedido.service';
+import { Pedido } from '../pedido/pedido';
 import { Component, OnInit } from '@angular/core';
 import { Entrega } from '../entrega/entrega';
 import { EntregaService } from '../entrega/entrega.service';
@@ -12,10 +11,10 @@ import { Carrinho } from '../carrinho/carrinho';
 import { CarrinhoService } from '../carrinho/carrinho.service';
 
 @Component({
-  templateUrl: './pedido-list.component.html',
+  templateUrl: './pedidoBar-list.component.html',
 })
 
-export class PedidoListComponent implements OnInit {
+export class PedidoBarListComponent implements OnInit {
 
   private updateSubscription!: Subscription;
 
@@ -64,8 +63,8 @@ export class PedidoListComponent implements OnInit {
 
     environment.fundoColoridoCardapio = false;
     environment.fundoColoridoPedido = false;
-    environment.fundoColoridoCozinha = true;
-    environment.fundoColoridoBar = false;
+    environment.fundoColoridoCozinha = false;
+    environment.fundoColoridoBar = true;
     environment.fundoColoridoEntrega = false;
     environment.fundoColoridoConta = false;
 

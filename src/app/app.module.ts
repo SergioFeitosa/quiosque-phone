@@ -12,18 +12,23 @@ import { environment } from '../environments/environment';
 
 import { TelefoneValidacaoComponent } from './telefone/telefone-validacao/telefone-validacao.component';
 import { NgMaterialModule } from './ng-material/ng-material.module';
-import { PedidoDeleteComponent } from './pedido/pedido-delete.component';
 import { ContaListComponent } from './conta/conta-list.component';
 import { ProdutoCreateComponent } from './produto/produto-create.component';
-import { PedidoUpdateComponent } from './pedido/pedido-update.component';
 import { ProdutoReadComponent } from './produto/produto-read.component';
-import { PedidoReadComponent } from './pedido/pedido-read.component';
 import { PedidoCreateComponent } from './pedido/pedido-create.component';
+import { PedidoDeleteComponent } from './pedido/pedido-delete.component';
+import { PedidoListComponent } from './pedido/pedido-list.component';
+import { PedidoReadComponent } from './pedido/pedido-read.component';
+import { PedidoUpdateComponent } from './pedido/pedido-update.component';
+import { PedidoBarCreateComponent } from './pedidoBar/pedidoBar-create.component';
+import { PedidoBarDeleteComponent } from './pedidoBar/pedidoBar-delete.component';
+import { PedidoBarListComponent } from './pedidoBar/pedidoBar-list.component';
+import { PedidoBarReadComponent } from './pedidoBar/pedidoBar-read.component';
+import { PedidoBarUpdateComponent } from './pedidoBar/pedidoBar-update.component';
 import { ModalModule } from './modal/modal.module';
 import { FechamentoListComponent } from './fechamento/fechamento-list.component';
 import { EntregaListComponent } from './entrega/entrega-list.component';
 import { EntregaUpdateComponent } from './entrega/entrega-update.component';
-import { PedidoListComponent } from './pedido/pedido-list.component';
 import { CardapioPrincipalComponent } from './cardapioprincipal/cardapio-principal.component';
 import { Error404Component } from './Error404/error-404.component';
 import { RouterModule } from '@angular/router';
@@ -80,11 +85,16 @@ import { CarrinhoDeleteComponent } from './carrinho/carrinho-delete.component';
     NavBarComponent,
     Error404Component,
     CardapioPrincipalComponent,
-    PedidoListComponent,
     PedidoCreateComponent,
+    PedidoDeleteComponent,
+    PedidoListComponent,
     PedidoReadComponent,
     PedidoUpdateComponent,
-    PedidoDeleteComponent,
+    PedidoBarCreateComponent,
+    PedidoBarDeleteComponent,
+    PedidoBarListComponent,
+    PedidoBarReadComponent,
+    PedidoBarUpdateComponent,
     EntregaListComponent,
     EntregaUpdateComponent,
     FechamentoListComponent,

@@ -9,6 +9,7 @@ export const environment = {
   fundoColoridoCardapio: true,
   fundoColoridoPedido: false,
   fundoColoridoCozinha: false,
+  fundoColoridoBar: false,
   fundoColoridoEntrega: false,
   fundoColoridoConta: false,
   firebase: {

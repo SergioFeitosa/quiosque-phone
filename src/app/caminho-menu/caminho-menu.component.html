@@ -2,7 +2,7 @@
 <!-- DESKTOP -->
 
 <div class="container desktop">
-  <mat-grid-list cols="4" rowHeight="10em">
+  <mat-grid-list cols="5" rowHeight="10em">
     <mat-grid-tile>
       <a [routerLink]="['/cardapioPrincipal']" routerLinkActive="active"
         class="nav-link">
@@ -38,6 +38,19 @@
           <mat-card-subtitle>Cook</mat-card-subtitle>
           <mat-card-title-group>
             <mat-icon>restaurant_menu</mat-icon>
+          </mat-card-title-group>
+        </mat-card>
+      </a>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <a [routerLink]="['/pedidoBar']" routerLinkActive="active"
+        class="nav-link">
+        <mat-card [ngStyle]="{'background-color':fundoColoridoBar ?
+          'aquamarine' : ''}" style="border: 1px solid rgb(77, 40, 146); width: 15em;">
+          <mat-card-title>Bar</mat-card-title>
+          <mat-card-subtitle>Bar</mat-card-subtitle>
+          <mat-card-title-group>
+            <mat-icon>liquor</mat-icon>
           </mat-card-title-group>
         </mat-card>
       </a>
@@ -125,6 +138,20 @@
     </mat-grid-tile>
 
     <mat-grid-tile  gutterSize="1em">
+      <a [routerLink]="['/pedidoBar']" routerLinkActive="active"
+        class="nav-link">
+        <mat-card [ngStyle]="{'background-color':fundoColoridoBar ?
+          'aquamarine' : ''}" style="border: 1px solid rgb(77, 40, 146); width: 10em;">
+          <mat-card-title>Bar</mat-card-title>
+          <mat-card-subtitle>Bar</mat-card-subtitle>
+          <mat-card-title-group>
+            <mat-icon>liquor</mat-icon>
+          </mat-card-title-group>
+        </mat-card>
+      </a>
+    </mat-grid-tile>
+
+    <mat-grid-tile  gutterSize="1em">
       <a [routerLink]="['/entrega']" routerLinkActive="active"
         class="nav-link">
         <mat-card [ngStyle]="{'background-color':fundoColoridoEntrega ?
@@ -179,6 +206,19 @@
           <mat-card-subtitle>Cook</mat-card-subtitle>
           <mat-card-title-group>
             <mat-icon>restaurant_menu</mat-icon>
+          </mat-card-title-group>
+        </mat-card>
+      </a>
+    </mat-grid-tile>
+    <mat-grid-tile >
+      <a [routerLink]="['/pedidoBar']" routerLinkActive="active"
+        class="nav-link">
+        <mat-card [ngStyle]="{'background-color':fundoColoridoBar ?
+          'aquamarine' : ''}"  style="border: 1px solid rgb(77, 40, 146); width: 6.5em;">
+          <mat-card-title style="font-size: larger;">Bar</mat-card-title>
+          <mat-card-subtitle>Bar</mat-card-subtitle>
+          <mat-card-title-group>
+            <mat-icon>liquor</mat-icon>
           </mat-card-title-group>
         </mat-card>
       </a>

@@ -59,6 +59,7 @@ export class CarrinhoListComponent implements OnInit {
     environment.fundoColoridoCardapio = false;
     environment.fundoColoridoPedido = true;
     environment.fundoColoridoCozinha = false;
+    environment.fundoColoridoBar = false;
     environment.fundoColoridoEntrega = false;
     environment.fundoColoridoConta = false;
 
