@@ -1,3 +1,4 @@
+import { Carrinho } from '../carrinho/carrinho';
 import { Produto } from '../produto/produto';
 
 export interface Pedido {
@@ -13,5 +14,7 @@ export interface Pedido {
   status: string;
 
   produto: Produto;
+  
+  carrinho: Carrinho;
 
 }

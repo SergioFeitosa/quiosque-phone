@@ -15,9 +15,11 @@ export class PedidoService {
 
   // baseUrl = 'http://localhost:8080/quiosqueBackend/pedidos';
 
-  // baseUrl = 'http://localhost:8080/pedidos';
+  // baseUrl = 'http://localhost:8080/quiosque/pedidos';
 
   // baseUrl = 'https://sgpn.com.br/quiosqueBackend/pedidos';
+
+  // baseUrl = 'https://quiosque.sgpn.com.br/pedidos';
 
   baseUrl = 'https://sgpn.com.br/pedidos';
 

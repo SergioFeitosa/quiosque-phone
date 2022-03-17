@@ -24,9 +24,13 @@ export class CarrinhoService {
 
   // baseUrl = 'http://localhost:8080/quiosqueBackend/carts';
 
-  // baseUrl = 'http://localhost:8080/carts';
+  // baseUrl = 'http://localhost:8080/quiosque/carts';
+
+  // baseUrl = 'http://localhost:8080/quiosque/carts';
 
   // baseUrl = 'https://sgpn.com.br/quiosqueBackend/carts';
+
+  // baseUrl = 'https://quiosque.sgpn.com.br/carts';
 
   baseUrl = 'https://sgpn.com.br/carts';
 

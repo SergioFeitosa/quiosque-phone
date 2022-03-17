@@ -45,12 +45,6 @@
         <td class="text-center">
           <p style="margin: 0"><small style="font-size: 0.8em;">{{
               carrinho.status }}</small></p>
-          <p style="margin: 0"><small style="font-size: 0.8em; color:#bdbdbd">{{
-              carrinho.status }}</small></p>
-          <p style="margin: 0"><small style="font-size: 0.8em; color:#bdbdbd">{{
-              carrinho.status }}</small></p>
-          <p style="margin: 0"><small style="font-size: 0.8em; color:#bdbdbd">{{
-              carrinho.status }}</small></p>
         </td>
       </tr>
     </tbody>
@@ -144,7 +138,7 @@
         <th style='width: 10%; font-size: 10px;'> </th>
         <th style='width: 30%; font-size: 10px;'> Item </th>
         <th style='width: 10%; font-size: 10px;'> Qtde</th>
-        <!-- <th style='width: 10%; font-size: 10px;' class="text-center"> Ações </th> -->
+        <th style='width: 10%; font-size: 10px;' class="text-center"> Status </th>
       </tr>
     </thead>
     <tbody>
@@ -157,10 +151,9 @@
             width="100"
             height="70">
         </td>
-        <td><p>{{ carrinho.produto.nome }}</p></td>
-        <td>
-          {{carrinho.quantidade}}
-        </td>
+        <td style='width: 10%; font-size: 10px;'>{{ carrinho.produto.nome }}</td>
+        <td style='width: 10%; font-size: 10px;'>{{ carrinho.quantidade }}</td>
+        <td style='width: 10%; font-size: 10px;'>{{ carrinho.status }}</td>
       </tr>
     </tbody>
   </table>
@@ -175,7 +168,7 @@
         <th style='width: 10%; font-size: 10px;'> </th>
         <th style='width: 30%; font-size: 10px;'> Item </th>
         <th style='width: 10%; font-size: 10px;'> Qtde</th>
-        <!-- <th style='width: 10%; font-size: 10px;' class="text-center"> Ações </th> -->
+        <th style='width: 10%; font-size: 10px;' class="text-center"> Status </th>
       </tr>
     </thead>
     <tbody>
@@ -188,10 +181,9 @@
             width="100"
             height="70">
         </td>
-        <td><p>{{ carrinho.produto.nome }}</p></td>
-        <td>
-          {{carrinho.quantidade}}
-        </td>
+        <td style='width: 10%; font-size: 10px;'>{{ carrinho.produto.nome }}</td>
+        <td style='width: 10%; font-size: 10px;'>{{ carrinho.quantidade }}</td>
+        <td style='width: 10%; font-size: 10px;'>{{ carrinho.status }}</td>
       </tr>
     </tbody>
   </table>

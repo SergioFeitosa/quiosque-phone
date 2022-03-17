@@ -1,12 +1,14 @@
 import { PedidoService } from './../pedido/pedido.service';
 import { NavBarService } from './nav-bar.service';
-import { Component, OnInit } from '@angular/core';
 import { ContaService } from '../conta/conta.service';
 import { Pedido } from '../pedido/pedido';
 import { environment } from 'src/environments/environment';
 import { Conta } from '../conta/conta';
 import { ProdutoService } from '../produto/produto.service';
 import { Produto } from '../produto/produto';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -24,8 +26,14 @@ export class NavBarComponent implements OnInit {
 
   displayStyle: string = '';
 
+  userData: any;
+
   constructor(
     private navBarService: NavBarService,
+    private afAuth: AngularFireAuth,
+    private router: Router,
+    private ngZone: NgZone
+
   ) { }
 
   ngOnInit(): void {
@@ -62,6 +70,15 @@ export class NavBarComponent implements OnInit {
     this.displayStyle = 'none';
     // tslint:disable-next-line:prefer-const
 
+  }
+
+  logout() {
+    return this.afAuth.signOut().then(() => {
+      this.ngZone.run(() => {
+        environment.login = false;
+        this.router.navigate(['']);
+      });
+    });
   }
 
 }

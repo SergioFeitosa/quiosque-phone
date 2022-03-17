@@ -3,6 +3,9 @@ import { Observable } from 'rxjs';
 import { Injectable, Type } from '@angular/core';
 import { Produto } from './produto';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Carrinho } from '../carrinho/carrinho';
+import { environment } from 'src/environments/environment';
+import { CarrinhoService } from '../carrinho/carrinho.service';
 
 
 @Injectable({
@@ -16,15 +19,24 @@ export class ProdutoService {
 
   // baseUrl = 'http://localhost:8080/quiosqueBackend/produtos';
 
-  // baseUrl = 'http://localhost:8080/produtos';
+  // baseUrl = 'http://localhost:8080/quiosque/produtos';
 
   // baseUrl = 'https://sgpn.com.br/quiosqueBackend/produtos';
+
+  // baseUrl = 'https://quiosque.sgpn.com.br/produtos';
 
   baseUrl = 'https://sgpn.com.br/produtos';
 
   produtos!: Observable<Produto[]>;
 
+  // tslint:disable-next-line:variable-name
+  produto = {} as Produto;
+
+  // tslint:disable-next-line:variable-name
+  carrinho = {} as Carrinho;
+
   constructor(
+    private carrinhoService: CarrinhoService,
     private snackBar: MatSnackBar,
     private http: HttpClient) {
 

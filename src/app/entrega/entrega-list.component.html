@@ -54,8 +54,8 @@
               rounded" alt="..." width="25"
               height="25">
           </button>
-          <button routerLink="/entrega/update/{{ entrega.id }}"
-            [disabled]="((telefone == 99999999999 || telefone == 99999999996) && entrega.dataCriacao == null)
+          <button (click)="entregaUpdate( entrega.id! )"
+            [disabled]="((telefone == 5511982551256 || telefone == 99999999996) && entrega.dataCriacao == null)
             ? false : true">
             <img src='/assets/images/guardasol.jpg' class="figure-img img-fluid
               rounded" alt="..." width="25"
@@ -91,8 +91,8 @@
               rounded" alt="..." width="25"
               height="25">
           </button>
-          <button routerLink="/entrega/update/{{ entrega.id }}"
-            [disabled]="((telefone == 99999999999 || telefone == 99999999996) && entrega.dataCriacao == null)
+          <button (click)="entregaUpdate( entrega.id! )"
+            [disabled]="((telefone == 5511982551256 || telefone == 99999999996) && entrega.dataCriacao == null)
             ? false : true">
             <img src='/assets/images/guardasol.jpg' class="figure-img img-fluid
               rounded" alt="..." width="25" height="25">

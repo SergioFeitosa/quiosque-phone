@@ -62,7 +62,9 @@ export class CarrinhoListComponent implements OnInit {
     environment.fundoColoridoEntrega = false;
     environment.fundoColoridoConta = false;
 
-    if (environment.telefone === 99999999999 || environment.telefone === 99999999997) {
+    // entram no if somente administradores, clientes saem pelo else
+
+    if (+environment.telefone === 5511982551256 || +environment.telefone === 99999999997) {
 
       this.carrinhoService.read().subscribe(carrinhos => {
         this.carrinhos = carrinhos;
@@ -84,9 +86,23 @@ export class CarrinhoListComponent implements OnInit {
       this.carrinhoService.read().subscribe(carrinhos => {
         this.carrinhos = carrinhos;
         this.filteredCarrinhos = this.carrinhos
-          .filter((carrinho: Carrinho) => environment.telefone - carrinho.telefone === 0)
-          .filter((carrinho: Carrinho) => carrinho.enviado !== true);
+        .filter((carrinho: Carrinho) => carrinho.telefone - environment.telefone === 0)
+        .filter((carrinho: Carrinho) => carrinho.enviado !== true);
+        //alert('passei carrinho 1');
+        //alert('passei carrinho ENV ' + +environment.telefone);
+        //alert('passei carrinho TEL ' + +this.carrinho.telefone);
+      });
 
+      this.updateSubscription = interval(5000).subscribe(
+        (val) => {
+
+          this.carrinhoService.read().subscribe(carrinhos => {
+            this.carrinhos = carrinhos;
+            this.filteredCarrinhos = this.carrinhos
+            .filter((carrinho: Carrinho) => carrinho.telefone - environment.telefone === 0)
+            .filter((carrinho: Carrinho) => carrinho.enviado !== true);
+            //alert('passei carrinho 2');
+          });
       });
     }
   }
@@ -115,7 +131,7 @@ export class CarrinhoListComponent implements OnInit {
   set filter(value: string) {
     this._filterBy = value;
 
-    if (environment.telefone === 99999999999 || environment.telefone === 99999999997) {
+    if (environment.telefone === 5511982551256 || environment.telefone === 99999999997) {
 
       this.filteredCarrinhos =
         this.carrinhos
@@ -169,12 +185,11 @@ export class CarrinhoListComponent implements OnInit {
     this.carrinhoService.readById(carrinhoId).subscribe(carrinho => {
       this.carrinho = carrinho;
 
-      if (this.carrinho.enviado !== true) {
+      if (carrinho.enviado !== true) {
 
-        this.carrinho.enviado = true;
+        this.carrinho.enviado = false;
         this.carrinho.status = 'Confirmado';
-        this.atualizarCarrinho(carrinho);
-
+        this.atualizarCarrinho(this.carrinho);
 
         this.pedido.telefone = this.carrinho.telefone;
         this.pedido.local = this.carrinho.local;
@@ -184,6 +199,7 @@ export class CarrinhoListComponent implements OnInit {
         this.pedido.dataCriacao = this.carrinho.dataCriacao;
         this.pedido.enviado = false;
         this.pedido.status = 'Confirmado';
+        this.pedido.carrinho = this.carrinho;
 
         this.pedido.produto = this.carrinho.produto;
 
@@ -199,6 +215,7 @@ export class CarrinhoListComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   atualizarCarrinho(carrinho: Carrinho) {
+
     this.carrinhoService.update(carrinho).subscribe(() => {
       this.carrinhoService.showMessage('Carrinho Atualizado');
     });

@@ -1,3 +1,5 @@
+import { getAuth } from 'firebase/auth';
+import { ProdutoService } from './../produto/produto.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, NgZone } from '@angular/core';
 import firebase from 'firebase/compat/app';
@@ -5,6 +7,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { interval } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { WindowService } from './window.service';
 
 var config = {
   apiKey: "AIzaSyAc9T6jV7QRc2sZMeQ3wAFxO2u-SH7dS_A",
@@ -14,7 +17,6 @@ var config = {
   messagingSenderId: "977420644755",
   appId: "1:977420644755:web:d49bb641a0a9ea7cef3866"
 }
-
 
 @Component({
   selector: 'app-phone-number',
@@ -32,9 +34,12 @@ export class PhoneNumberComponent implements OnInit {
   otp!: string;
   verify: any;
 
+
   constructor(
     private router: Router,
     private ngZone: NgZone,
+    private produtoService: ProdutoService,
+    private windowService: WindowService
   ) { }
 
   configCode = {
@@ -53,12 +58,12 @@ export class PhoneNumberComponent implements OnInit {
 
     firebase.initializeApp(config),
     this.verify = JSON.parse(localStorage.getItem('verificationId') || '{}');
-    console.log(this.verify);
+    // console.log(this.verify);
     this.displayCode = 'none';
-
   }
 
   getOTP() {
+
     this.reCaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', { size: 'invisible' })
 
     firebase.
@@ -70,8 +75,7 @@ export class PhoneNumberComponent implements OnInit {
         // this.router.navigate(['/code'])
         this.displayCode = 'block';
       }).catch((error) => {
-        alert(error.message);
-        interval(5000).subscribe(n => window.location.reload());
+        interval(1000).subscribe(n => window.location.reload());
       })
   }
 
@@ -80,28 +84,26 @@ export class PhoneNumberComponent implements OnInit {
   }
 
   handleClick() {
-    console.log(this.otp);
+    // console.log(this.otp);
     var credential = firebase.auth.PhoneAuthProvider.credential(
       this.verify,
       this.otp
     );
 
-    console.log(credential);
     firebase
       .auth()
       .signInWithCredential(credential)
       .then((response) => {
-        console.log(response);
         localStorage.setItem('user_data', JSON.stringify(response));
         this.ngZone.run(() => {
           environment.login = true;
-
+          environment.telefone = this.phoneNumber;
+          // this.produtoService.carrinhoCreate(produtctId);
           this.router.navigate(['carrinho']);
         });
       })
       .catch((error) => {
-        console.log(error);
-        alert(error.message);
+        interval(1000).subscribe(n => window.location.reload());
       });
   }
 }

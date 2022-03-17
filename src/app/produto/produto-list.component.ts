@@ -118,60 +118,9 @@ export class ProdutoListComponent implements OnInit {
     });
 
     this.verify = JSON.parse(localStorage.getItem('verificationId') || '{}');
-    console.log(this.verify);
+    // console.log(this.verify);
 
   }
-
-  // tslint:disable-next-line:typedef
-  onOtpChange(otp: string) {
-    this.otp = otp;
-  }
-
-  // tslint:disable-next-line:typedef
-  handleClick(produtoId: number) {
-    console.log(this.otp);
-    // tslint:disable-next-line:prefer-const
-    const credential = firebase.auth.PhoneAuthProvider.credential(
-      this.verify,
-      this.otp
-    );
-
-    console.log(credential);
-    firebase
-      .auth()
-      .signInWithCredential(credential)
-      .then((response) => {
-        console.log(response);
-        localStorage.setItem('user_data', JSON.stringify(response));
-        this.ngZone.run(() => {
-          // this.router.navigate(['/carrinho']);
-          this.validarCodigo(produtoId);
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-        alert(error.message);
-      });
-  }
-
-  // tslint:disable-next-line:typedef
-  getOTP() {
-    this.reCaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', { size: 'invisible' });
-
-    firebase.
-      auth().
-      signInWithPhoneNumber(this.phoneNumber, this.reCaptchaVerifier).
-      then((confirmationResult) => {
-        localStorage.setItem('verificationId',
-        JSON.stringify(confirmationResult.verificationId));
-        // this.router.navigate(['/code']);
-        // this.validarCodigo(this.produto.id);
-      }).catch((error) => {
-        alert(error.message);
-        interval(5000).subscribe(n => window.location.reload());
-      });
-  }
-
 
   // tslint:disable-next-line:typedef
   minus() {
@@ -255,7 +204,6 @@ export class ProdutoListComponent implements OnInit {
       this.carrinho.dataCriacao = new Date();
       this.carrinho.telefone = environment.telefone;
       this.carrinho.status = 'Pendente';
-
       this.carrinho.produto = this.produto;
 
       this.carrinhoService.create(this.carrinho).subscribe(() => {
@@ -276,28 +224,22 @@ export class ProdutoListComponent implements OnInit {
 
   validarCodigo(produtoId: number): void {
 
-
-    console.log('teste');
-
     // tslint:disable-next-line:no-unused-expression
     this.produtoService.readById(produtoId).subscribe(product => {
       this.produto = product;
-
     });
 
-    if (environment.codigo > 0) {
-      environment.codigo = this.codigo;
-      // tslint:disable-next-line:semicolon
-      // this.updateClassDisabled();
-      this.carrinhoCreate(produtoId);
-      this.closePopup2();
-      environment.login = true;
-      this.login = environment.login;
-      // window.alert('Logged in');
-      this.closePopup();
+    environment.telefone = this.phoneNumber;
+    // tslint:disable-next-line:semicolon
+    // this.updateClassDisabled();
 
+    this.carrinhoCreate(produtoId);
+    this.closePopup2();
 
-    }
+    environment.login = true;
+    this.login = environment.login;
+    // window.alert('Logged in');
+    this.closePopup();
   }
 
   enviarCodigo(): void {

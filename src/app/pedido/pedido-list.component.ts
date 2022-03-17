@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 import { Entrega } from '../entrega/entrega';
 import { EntregaService } from '../entrega/entrega.service';
 import { interval, Subscription } from 'rxjs';
+import { Carrinho } from '../carrinho/carrinho';
+import { CarrinhoService } from '../carrinho/carrinho.service';
 
 @Component({
   templateUrl: './pedido-list.component.html',
@@ -35,6 +37,8 @@ export class PedidoListComponent implements OnInit {
   // tslint:disable-next-line:variable-name
   produto = {} as Produto;
 
+  carrinho = {} as Carrinho;
+
   // tslint:disable-next-line:variable-name
   pedido = {} as Pedido;
 
@@ -46,7 +50,7 @@ export class PedidoListComponent implements OnInit {
 
   constructor(
     private pedidoService: PedidoService,
-    private produtoService: ProdutoService,
+    private carrinhoService: CarrinhoService,
     private entregaService: EntregaService,
     private router: Router) {
 
@@ -65,7 +69,7 @@ export class PedidoListComponent implements OnInit {
     environment.fundoColoridoConta = false;
 
 
-    if (+environment.telefone === 99999999999 || +environment.telefone === 99999999998) {
+    if (+environment.telefone === 5511982551256 || +environment.telefone === 99999999998) {
 
       this.pedidoService.read().subscribe(pedidos => {
         this.pedidos = pedidos;
@@ -75,7 +79,6 @@ export class PedidoListComponent implements OnInit {
 
       this.updateSubscription = interval(5000).subscribe(
         (val) => {
-
           this.pedidoService.read().subscribe(pedidos => {
             this.pedidos = pedidos;
             this.filteredPedidos = this.pedidos
@@ -102,7 +105,7 @@ export class PedidoListComponent implements OnInit {
   set filter(value: string) {
     this._filterBy = value;
 
-    if (+environment.telefone === 99999999999 || +environment.telefone === 99999999998) {
+    if (+environment.telefone === 5511982551256 || +environment.telefone === 99999999998) {
 
       this.filteredPedidos =
         this.pedidos
@@ -130,19 +133,24 @@ export class PedidoListComponent implements OnInit {
 
       if (this.pedido.enviado !== true) {
 
-        this.pedido.enviado = true;
-        this.pedido.status = 'Preparação';
+        this.pedido.enviado = false;
+        this.pedido.status = 'Saiu para entrega';
         this.atualizarPedido(pedido);
 
+        // tslint:disable-next-line:no-unused-expression
+        this.carrinhoService.readById(pedido.carrinho.id!).subscribe(carrinho => {
+          this.carrinho = carrinho;
+          this.carrinho.status = 'Saiu para entrega';
+          this.atualizarCarrinho(this.carrinho);
+        })
+
         this.entrega.pedido = pedido;
-        this.entrega.dataCriacao = new Date();
         this.entrega.observacao = this.pedido.observacao;
         this.entrega.quantidade = this.pedido.quantidade;
 
         this.entregaService.create(this.entrega).subscribe(() => {
-          this.entregaService.showMessage('Entrega solicitada');
-        }
-        );
+          this.entregaService.showMessage('Saiu para entrega');
+        });
       }
     });
   }
@@ -192,4 +200,12 @@ export class PedidoListComponent implements OnInit {
       this.pedidoService.showMessage('Pedido Atualizado');
     });
   }
+
+  // tslint:disable-next-line:typedef
+  atualizarCarrinho(carrinho: Carrinho) {
+    this.carrinhoService.update(carrinho).subscribe(() => {
+      this.carrinhoService.showMessage('Carrinho Atualizado');
+    });
+  }
+
 }
