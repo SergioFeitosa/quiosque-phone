@@ -1,5 +1,4 @@
 import { environment } from 'src/environments/environment';
-import { ActivatedRoute } from '@angular/router';
 import { EntregaService } from './entrega.service';
 import { Entrega } from './entrega';
 import { Component, OnInit } from '@angular/core';
@@ -8,6 +7,8 @@ import { Pedido } from '../pedido/pedido';
 import { PedidoService } from '../pedido/pedido.service';
 import { CarrinhoService } from '../carrinho/carrinho.service';
 import { Carrinho } from '../carrinho/carrinho';
+import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   templateUrl: './entrega-list.component.html',
   styleUrls: ['./entrega-list.component.css']
@@ -43,7 +44,8 @@ export class EntregaListComponent implements OnInit {
     private entregaService: EntregaService,
     private pedidoService: PedidoService,
     private carrinhoService: CarrinhoService,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,
+    private router: Router) {
 
   }
 
@@ -125,8 +127,6 @@ export class EntregaListComponent implements OnInit {
 
   entregaUpdate(entregaId: number): void {
 
-    alert('entrei entrega')
-
     // tslint:disable-next-line:no-unused-expression
     this.entregaService.readById(entregaId).subscribe(entrega => {
       this.entrega = entrega;
@@ -146,16 +146,17 @@ export class EntregaListComponent implements OnInit {
       })
 
 
-    this.entrega.pedido = this.pedido;
-    this.entrega.dataCriacao = new Date();
+      this.entrega.pedido = this.pedido;
+      this.entrega.dataCriacao = new Date();
 
-    this.entregaService.update(this.entrega).subscribe(() => {
-      this.entregaService.showMessage('Entrega realizada');
-    }
-    );
+      this.entregaService.update(this.entrega).subscribe(() => {
+        this.entregaService.showMessage('Entrega realizada');
+      }
+      );
 
 
-  });
+
+    });
 
   }
 

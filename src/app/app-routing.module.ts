@@ -3,20 +3,13 @@ import { PhoneNumberComponent } from './phone-number/phone-number.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ProdutoListComponent } from './produto/produto-list.component';
-import { ProdutoReadComponent } from './produto/produto-read.component';
 import { CarrinhoListComponent } from './carrinho/carrinho-list.component';
 import { CarrinhoUpdateComponent } from './carrinho/carrinho-update.component';
-import { CarrinhoReadComponent } from './carrinho/carrinho-read.component';
-import { CarrinhoCreateComponent } from './carrinho/carrinho-create.component';
 import { CarrinhoDeleteComponent } from './carrinho/carrinho-delete.component';
 import { PedidoDeleteComponent } from './pedido/pedido-delete.component';
 import { ContaListComponent } from './conta/conta-list.component';
-import { ProdutoCreateComponent } from './produto/produto-create.component';
 import { PedidoUpdateComponent } from './pedido/pedido-update.component';
-import { PedidoReadComponent } from './pedido/pedido-read.component';
-import { PedidoCreateComponent } from './pedido/pedido-create.component';
 import { FechamentoListComponent } from './fechamento/fechamento-list.component';
 import { EntregaListComponent } from './entrega/entrega-list.component';
 import { EntregaUpdateComponent } from './entrega/entrega-update.component';
@@ -87,9 +80,15 @@ const routes: Routes = [
   {
     path: 'fechamento', component: FechamentoListComponent
   },
-  { path: 'code', component: CodeComponent},
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'phone', component: PhoneNumberComponent },
+  {
+    path: 'code', component: CodeComponent
+  },
+  {
+    path: 'dashboard', component: DashboardComponent
+  },
+  {
+    path: 'phone', component: PhoneNumberComponent
+  },
   {
     path: '**', component: Error404Component
   }

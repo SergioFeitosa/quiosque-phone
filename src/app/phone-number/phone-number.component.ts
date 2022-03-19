@@ -1,3 +1,4 @@
+import { ProdutoListComponent } from './../produto/produto-list.component';
 import { getAuth } from 'firebase/auth';
 import { ProdutoService } from './../produto/produto.service';
 import { Router } from '@angular/router';
@@ -39,7 +40,8 @@ export class PhoneNumberComponent implements OnInit {
     private router: Router,
     private ngZone: NgZone,
     private produtoService: ProdutoService,
-    private windowService: WindowService
+    private windowService: WindowService,
+    private produtoListComponent: ProdutoListComponent
   ) { }
 
   configCode = {
@@ -75,6 +77,7 @@ export class PhoneNumberComponent implements OnInit {
         // this.router.navigate(['/code'])
         this.displayCode = 'block';
       }).catch((error) => {
+        alert('Número inválido. Tente novamente')
         interval(1000).subscribe(n => window.location.reload());
       })
   }
@@ -98,6 +101,8 @@ export class PhoneNumberComponent implements OnInit {
         this.ngZone.run(() => {
           environment.login = true;
           environment.telefone = this.phoneNumber;
+          this.produtoListComponent.login = true;
+          this.produtoListComponent.closePopup2();
           // this.produtoService.carrinhoCreate(produtctId);
           this.router.navigate(['carrinho']);
         });

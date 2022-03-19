@@ -201,9 +201,11 @@
         <button routerLink='/carrinho/delete/{{ carrinho.id! }}'>
           Deletar
         </button>
-        <button (click)="pedidoCreate( carrinho.id! );">
-          Confirmar
-        </button>
+        <div *ngIf="statusBool">
+          <button (click)="pedidoCreate( carrinho.id! );" >
+            Confirmar
+          </button>
+        </div>
         <button type="button" class="btn btn-danger"
           (click)="closePopup()">
           Fechar

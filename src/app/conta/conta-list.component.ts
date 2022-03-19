@@ -161,5 +161,4 @@ export class ContaListComponent implements OnInit {
     this.contaService.showMessage('Aguarde o atendente');
   }
 
-
 }

@@ -68,6 +68,7 @@ export class ProdutoListComponent implements OnInit {
   _filterBy: string = '';
 
   otp!: string;
+  flag!: boolean;
 
   verify: any;
 
@@ -102,10 +103,12 @@ export class ProdutoListComponent implements OnInit {
 
     // this.telefone = environment.telefone;
     this.login = environment.login;
+    this.flag = false;
 
     environment.fundoColoridoCardapio = true;
     environment.fundoColoridoPedido = false;
     environment.fundoColoridoCozinha = false;
+    environment.fundoColoridoBar = false;
     environment.fundoColoridoEntrega = false;
     environment.fundoColoridoConta = false;
 

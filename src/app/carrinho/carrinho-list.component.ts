@@ -41,6 +41,9 @@ export class CarrinhoListComponent implements OnInit {
   // tslint:disable-next-line:variable-name
   _filterBy: string = '';
 
+  statusBool: boolean = false;
+
+  container = document.querySelector('.container');
 
   constructor(
     private carrinhoService: CarrinhoService,
@@ -159,6 +162,9 @@ export class CarrinhoListComponent implements OnInit {
     this.carrinhoService.readById(carrinhoId).subscribe(carrinho => {
       this.carrinho = carrinho;
       this.produto = this.carrinho.produto;
+      if(this.carrinho.status.toLowerCase() === 'pendente'){
+        this.statusBool = true;
+      }
     });
 
     this.displayStyle = 'block';
@@ -190,6 +196,7 @@ export class CarrinhoListComponent implements OnInit {
 
         this.carrinho.enviado = false;
         this.carrinho.status = 'Confirmado';
+
         this.atualizarCarrinho(this.carrinho);
 
         this.pedido.telefone = this.carrinho.telefone;
