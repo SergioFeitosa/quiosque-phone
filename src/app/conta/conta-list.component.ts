@@ -10,6 +10,8 @@ import { PedidoService } from '../pedido/pedido.service';
 
 @Component({
   templateUrl: './conta-list.component.html',
+  styleUrls: ['./conta-list.component.css'],
+
 })
 
 export class ContaListComponent implements OnInit {
@@ -27,7 +29,10 @@ export class ContaListComponent implements OnInit {
   // tslint:disable-next-line:quotemark
   // tslint:disable-next-line:member-ordering
   displayStyle = 'none';
+  displayStyleCartao = 'none';
   displayStylePix = 'none';
+  displayStyleDinheiro = 'none';
+  displayOperadora = 'none';
 
   contas: Conta[] = [];
 
@@ -45,6 +50,14 @@ export class ContaListComponent implements OnInit {
 
   // tslint:disable-next-line:variable-name
   _filterBy: string = '';
+
+  operadoraSelecionada: string = '';
+  operadoras: string[] = ['VISA', 'MASTERCARD', 'AMERICAN EXPRESS', 'ELO'];
+
+  debitocreditoSelecionada: string = '';
+  debcreds: string[] = ['Débito', 'Crédito'];
+
+  trocoPara: number = 0;
 
   constructor(private pedidoService: PedidoService,
               private router: Router,
@@ -143,6 +156,7 @@ export class ContaListComponent implements OnInit {
   // tslint:disable-next-line:typedef
   pagamentoCartao() {
     this.contaService.showMessage('Aguarde o atendente');
+    this.displayStyleCartao = 'block';
   }
 
   // tslint:disable-next-line:typedef
@@ -152,13 +166,23 @@ export class ContaListComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
+  pagamentoDinheiro() {
+    this.contaService.showMessage('Aguarde o atendente');
+    this.displayStyleDinheiro = 'block';
+  }
+
+    // tslint:disable-next-line:typedef
+    closePagamentoCartao(operadora: string) {
+      this.displayStyleCartao = 'none';
+    }
+  // tslint:disable-next-line:typedef
   closePagamentoPix() {
     this.displayStylePix = 'none';
   }
 
   // tslint:disable-next-line:typedef
-  pagamentoDinheiro() {
-    this.contaService.showMessage('Aguarde o atendente');
+  closePagamentoDinheiro() {
+    this.displayStyleDinheiro = 'none';
   }
 
 }

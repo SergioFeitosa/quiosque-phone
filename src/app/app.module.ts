@@ -34,6 +34,7 @@ import { Error404Component } from './Error404/error-404.component';
 import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ReplacePipe } from './pipe/replace.pipe';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { StarComponent } from './star/star.component';
 import { ProdutoListComponent } from './produto/produto-list.component';
@@ -118,6 +119,7 @@ import { CarrinhoDeleteComponent } from './carrinho/carrinho-delete.component';
     MatButtonModule,
     MatGridListModule,
     MatIconModule,
+    MatRadioModule,
     MatSnackBarModule,
     NgOtpInputModule,
     NgMaterialModule,
