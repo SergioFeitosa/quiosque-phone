@@ -95,7 +95,7 @@
 <!-- LAPTOP  -->
 
 <div class="container laptop" >
-  <mat-grid-list cols="4">
+  <mat-grid-list cols="5">
     <mat-grid-tile  gutterSize="1em" >
       <a [routerLink]="['/cardapioPrincipal']" routerLinkActive="active"
         class="nav-link">
@@ -170,8 +170,8 @@
 <!-- TABLET -->
 
 <div class="container tablet" >
-  <mat-grid-list cols="4" rowHeight="10em">
-    <mat-grid-tile  >
+  <mat-grid-list cols="5" rowHeight="10em">
+    <mat-grid-tile  gutterSize="1em" >
       <a [routerLink]="['/cardapioPrincipal']" routerLinkActive="active"
         class="nav-link">
         <mat-card [ngStyle]="{'background-color':fundoColoridoCardapio ?
@@ -184,7 +184,7 @@
         </mat-card>
       </a>
     </mat-grid-tile>
-    <mat-grid-tile >
+    <mat-grid-tile  gutterSize="1em">
       <a [routerLink]="['/carrinho']" routerLinkActive="active"
         class="nav-link">
         <mat-card [ngStyle]="{'background-color':fundoColoridoPedido ?
@@ -197,7 +197,7 @@
         </mat-card>
       </a>
     </mat-grid-tile>
-    <mat-grid-tile >
+    <mat-grid-tile  gutterSize="1em">
       <a [routerLink]="['/pedido']" routerLinkActive="active"
         class="nav-link">
         <mat-card [ngStyle]="{'background-color':fundoColoridoCozinha ?
@@ -210,7 +210,7 @@
         </mat-card>
       </a>
     </mat-grid-tile>
-    <mat-grid-tile >
+    <mat-grid-tile  gutterSize="1em">
       <a [routerLink]="['/pedidoBar']" routerLinkActive="active"
         class="nav-link">
         <mat-card [ngStyle]="{'background-color':fundoColoridoBar ?
@@ -223,7 +223,7 @@
         </mat-card>
       </a>
     </mat-grid-tile>
-    <mat-grid-tile >
+    <mat-grid-tile  gutterSize="1em" >
       <a [routerLink]="['/entrega']" routerLinkActive="active"
         class="nav-link">
         <mat-card [ngStyle]="{'background-color':fundoColoridoEntrega ?
@@ -247,7 +247,9 @@
       <mat-grid-tile>
         <a [routerLink]="['/cardapioPrincipal']" routerLinkActive="active"
         class="nav-link">
-        <mat-card class="example-card" style="border: 2px solid rgb(77, 40, 146); width: 8em;" >
+
+        <mat-card class="example-card" [ngStyle]="{'background-color':fundoColoridoCardapio ?
+          'aquamarine' : ''}" style="border: 2px solid rgb(77, 40, 146); width: 8em;">
           <mat-card-title>Cardápio</mat-card-title>
           <mat-card-subtitle>Menu</mat-card-subtitle>
           <mat-card-title-group>
@@ -259,7 +261,8 @@
       <mat-grid-tile>
         <a [routerLink]="['/carrinho']" routerLinkActive="active"
         class="nav-link">
-        <mat-card class="example-card"  style="border: 2px solid rgb(77, 40, 146); width: 8em;">
+        <mat-card class="example-card" [ngStyle]="{'background-color':fundoColoridoPedido ?
+        'aquamarine' : ''}"  style="border: 2px solid rgb(77, 40, 146); width: 8em;">
           <mat-card-title>Pedido</mat-card-title>
           <mat-card-subtitle>Order</mat-card-subtitle>
           <mat-card-title-group>
@@ -280,7 +283,8 @@
       <mat-grid-tile>
         <a [routerLink]="['/cardapioPrincipal']" routerLinkActive="active"
         class="nav-link">
-        <mat-card class="example-card" style="border: 2px solid rgb(77, 40, 146); width: 8em;">
+        <mat-card class="example-card" [ngStyle]="{'background-color':fundoColoridoCardapio ?
+        'aquamarine' : ''}"  style="border: 2px solid rgb(77, 40, 146); width: 8em;">
           <mat-card-title >Cardápio</mat-card-title>
           <mat-card-subtitle>Menu</mat-card-subtitle>
           <mat-card-title-group>
@@ -292,7 +296,8 @@
       <mat-grid-tile>
         <a [routerLink]="['/carrinho']" routerLinkActive="active"
         class="nav-link">
-        <mat-card class="example-card"  style="border: 2px solid rgb(77, 40, 146); width: 8em;">
+        <mat-card class="example-card" [ngStyle]="{'background-color':fundoColoridoPedido ?
+        'aquamarine' : ''}"   style="border: 2px solid rgb(77, 40, 146); width: 8em;">
           <mat-card-title >Pedido</mat-card-title>
           <mat-card-subtitle>Order</mat-card-subtitle>
           <mat-card-title-group>

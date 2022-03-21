@@ -9,6 +9,7 @@
   <span style='font-weight: bolder;'>Local: {{ local }} </span>
   <span> </span>
 </div>
+ (click)="pagamentoCartao()"
 -->
 
 <div
@@ -18,10 +19,11 @@
       <div class="table-responsive desktop">
         <div class="modal-header">
           <button type="button" class="btn-fab btn-primary"
-            style="border: 1px solid black; font-size: 15px; padding: 0.5rem
-            0.5rem; width: 30%"
-            (click)="pagamentoCartao()">
-            Pagamento Cartão
+          style="border: 1px solid black; font-size: 15px; padding: 0.5rem
+          0.5rem; width: 30%">
+            <a href="https://api.whatsapp.com/send?phone=5511982551256&text=Quero%20realizar%20o%20pagamento!" style="color: white; font-size: 15px; text-decoration: none;">
+              Pagamento Cartão
+            </a>
           </button>
           <button type="button" class="btn-fab btn-primary"
             style="border: 1px solid black; font-size: 15px; padding: 0.5rem
