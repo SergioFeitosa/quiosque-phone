@@ -31,10 +31,10 @@ import { EntregaListComponent } from './entrega/entrega-list.component';
 import { EntregaUpdateComponent } from './entrega/entrega-update.component';
 import { CardapioPrincipalComponent } from './cardapioprincipal/cardapio-principal.component';
 import { Error404Component } from './Error404/error-404.component';
-import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ReplacePipe } from './pipe/replace.pipe';
 import { MatRadioModule } from '@angular/material/radio';
+import { NgxMaskModule} from 'ngx-mask/lib/ngx-mask.module';
 
 import { StarComponent } from './star/star.component';
 import { ProdutoListComponent } from './produto/produto-list.component';
@@ -46,7 +46,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { IConfig } from 'ngx-mask';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 
@@ -107,7 +107,6 @@ import { CarrinhoDeleteComponent } from './carrinho/carrinho-delete.component';
   ],
   imports: [
     AppRoutingModule,
-    RouterModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
@@ -121,9 +120,7 @@ import { CarrinhoDeleteComponent } from './carrinho/carrinho-delete.component';
     MatIconModule,
     MatRadioModule,
     MatSnackBarModule,
-    NgOtpInputModule,
     NgMaterialModule,
-    NgOtpInputModule,
     NgxMaskModule.forRoot(),
     NoopAnimationsModule,
   ],
