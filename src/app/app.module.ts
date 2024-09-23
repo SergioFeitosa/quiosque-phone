@@ -33,9 +33,9 @@ import { CardapioPrincipalComponent } from './cardapioprincipal/cardapio-princip
 import { Error404Component } from './Error404/error-404.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ReplacePipe } from './pipe/replace.pipe';
-import { MatLegacyRadioModule as MatRadioModule } from '@angular/material/legacy-radio';
+//import { MatLegacyRadioModule as MatRadioModule } from '@angular/material';
+import {MatRadioModule} from '@angular/material/radio';
 import { NgxMaskModule} from 'ngx-mask/lib/ngx-mask.module';
-
 import { StarComponent } from './star/star.component';
 import { ProdutoListComponent } from './produto/produto-list.component';
 import { FormsModule } from '@angular/forms';
@@ -44,12 +44,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
+//import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { IConfig } from 'ngx-mask';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+//import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import {MatButtonModule} from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CaminhoMenuComponent } from './caminho-menu/caminho-menu.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
@@ -63,6 +64,7 @@ import { CarrinhoCreateComponent } from './carrinho/carrinho-create.component';
 import { CarrinhoReadComponent } from './carrinho/carrinho-read.component';
 import { CarrinhoUpdateComponent } from './carrinho/carrinho-update.component';
 import { CarrinhoDeleteComponent } from './carrinho/carrinho-delete.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 
@@ -104,7 +106,8 @@ import { CarrinhoDeleteComponent } from './carrinho/carrinho-delete.component';
         LoginComponent
     ],
     bootstrap: [AppComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA], imports: [AppRoutingModule,
+    schemas: [CUSTOM_ELEMENTS_SCHEMA], 
+    imports: [AppRoutingModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAuthModule,
         AngularFirestoreModule,
@@ -117,7 +120,6 @@ import { CarrinhoDeleteComponent } from './carrinho/carrinho-delete.component';
         MatIconModule,
         MatRadioModule,
         MatSnackBarModule,
-        NgMaterialModule,
-        NgxMaskModule.forRoot(),
-        NoopAnimationsModule], providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, provideHttpClient(withInterceptorsFromDi())] })
+        NgxMaskModule.forChild(),
+        NoopAnimationsModule], providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()] })
 export class AppModule { }

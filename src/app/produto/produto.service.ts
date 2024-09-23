@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable, Type } from '@angular/core';
 import { Produto } from './produto';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar as MatSnackBar } from '@angular/material/snack-bar';
 import { Carrinho } from '../carrinho/carrinho';
 import { environment } from 'src/environments/environment';
 import { CarrinhoService } from '../carrinho/carrinho.service';
