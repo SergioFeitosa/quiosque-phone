@@ -9,6 +9,10 @@ import 'firebase/compat/firestore';
 import { interval } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { WindowService } from './window.service';
+import { FormsModule } from '@angular/forms';
+import { NgClass, NgStyle } from '@angular/common';
+import { NgOtpInputComponent, NgOtpInputModule } from 'ng-otp-input';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 var config = {
   apiKey: "AIzaSyAc9T6jV7QRc2sZMeQ3wAFxO2u-SH7dS_A",
@@ -21,8 +25,15 @@ var config = {
 
 @Component({
   selector: 'app-phone-number',
+  standalone: true,
   templateUrl: './phone-number.component.html',
-  styleUrls: ['./phone-number.component.css']
+  styleUrls: ['./phone-number.component.css'],
+  imports: [
+    FormsModule,
+    NgClass, 
+    NgStyle,
+  ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ] 
 })
 export class PhoneNumberComponent implements OnInit {
 
@@ -83,7 +94,7 @@ export class PhoneNumberComponent implements OnInit {
   }
 
   onOtpChange(otp: string) {
-    this.otp = otp;
+    this.otp = otp; 
   }
 
   handleClick() {

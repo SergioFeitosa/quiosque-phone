@@ -35,10 +35,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ReplacePipe } from './pipe/replace.pipe';
 //import { MatLegacyRadioModule as MatRadioModule } from '@angular/material';
 import {MatRadioModule} from '@angular/material/radio';
-import { NgxMaskModule} from 'ngx-mask/lib/ngx-mask.module';
 import { StarComponent } from './star/star.component';
 import { ProdutoListComponent } from './produto/produto-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -66,12 +65,12 @@ import { CarrinhoReadComponent } from './carrinho/carrinho-read.component';
 import { CarrinhoUpdateComponent } from './carrinho/carrinho-update.component';
 import { CarrinhoDeleteComponent } from './carrinho/carrinho-delete.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({ declarations: [
         AppComponent,
-        PhoneNumberComponent,
         CarrinhoListComponent,
         CarrinhoCreateComponent,
         CarrinhoReadComponent,
@@ -102,7 +101,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
         EntregaUpdateComponent,
         FechamentoListComponent,
         ContaListComponent,
-        CaminhoMenuComponent,
+        //CaminhoMenuComponent,
         TelefoneValidacaoComponent,
         LoginComponent
     ],
@@ -115,12 +114,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
         BrowserModule,
         CarrinhoModule,
         FormsModule,
+        ReactiveFormsModule,
         ModalModule,
         MatButtonModule,
         MatGridListModule,
         MatIconModule,
         MatRadioModule,
-        MatSnackBarModule,
-        NgxMaskModule.forRoot(),
+        NgxMaskDirective,
+        RouterModule,
         NoopAnimationsModule], providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()] })
 export class AppModule { }
