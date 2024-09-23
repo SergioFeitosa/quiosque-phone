@@ -33,7 +33,7 @@ import { CardapioPrincipalComponent } from './cardapioprincipal/cardapio-princip
 import { Error404Component } from './Error404/error-404.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ReplacePipe } from './pipe/replace.pipe';
-import { MatRadioModule } from '@angular/material/radio';
+import { MatLegacyRadioModule as MatRadioModule } from '@angular/material/legacy-radio';
 import { NgxMaskModule} from 'ngx-mask/lib/ngx-mask.module';
 
 import { StarComponent } from './star/star.component';
@@ -44,10 +44,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { IConfig } from 'ngx-mask';
-import { MatButtonModule } from '@angular/material/button';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import { MatGridListModule } from '@angular/material/grid-list';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
