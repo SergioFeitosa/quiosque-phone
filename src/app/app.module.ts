@@ -56,6 +56,7 @@ import { CaminhoMenuComponent } from './caminho-menu/caminho-menu.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { MatIconModule } from '@angular/material/icon';
+import { NgxMaskDirective } from 'ngx-mask';
 
 import { NgOtpInputModule } from 'ng-otp-input';
 import { CarrinhoModule } from './carrinho/carrinho.module';
@@ -120,6 +121,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
         MatIconModule,
         MatRadioModule,
         MatSnackBarModule,
-        NgxMaskModule.forChild(),
+        NgxMaskModule.forRoot(),
         NoopAnimationsModule], providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()] })
 export class AppModule { }

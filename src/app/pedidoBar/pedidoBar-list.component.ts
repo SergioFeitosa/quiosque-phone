@@ -9,11 +9,10 @@ import { interval, Subscription } from 'rxjs';
 import { Carrinho } from '../carrinho/carrinho';
 import { CarrinhoService } from '../carrinho/carrinho.service';
 import { Router } from '@angular/router';
-import { NgxMaskDirective } from 'ngx-mask';
+
 
 @Component({
   templateUrl: './pedidoBar-list.component.html',
-
 })
 
 export class PedidoBarListComponent implements OnInit {
