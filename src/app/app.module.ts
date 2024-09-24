@@ -123,7 +123,7 @@ import { RouterModule } from '@angular/router';
         NgMaterialModule,
         NgOtpInputModule,
         NgxMaskModule.forRoot(),
-        NoopAnimationsModule], providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, provideHttpClient(withInterceptorsFromDi())] })
+        NoopAnimationsModule], providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()] })
 
 
 @NgModule({ declarations: [
