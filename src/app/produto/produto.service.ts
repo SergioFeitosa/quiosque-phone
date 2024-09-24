@@ -19,13 +19,13 @@ export class ProdutoService {
 
   // baseUrl = 'http://localhost:8080/quiosqueBackend/produtos';
 
-  // baseUrl = 'http://localhost:8080/quiosque/produtos';
+  baseUrl = 'http://localhost:8080/produtos';
 
   // baseUrl = 'https://sgpn.com.br/quiosqueBackend/produtos';
 
   // baseUrl = 'https://quiosque.sgpn.com.br/produtos';
 
-  baseUrl = 'https://sgpn.com.br/produtos';
+  // baseUrl = 'https://sgpn.com.br/produtos';
 
   produtos!: Observable<Produto[]>;
 

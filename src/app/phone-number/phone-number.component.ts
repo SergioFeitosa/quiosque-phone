@@ -9,6 +9,7 @@ import 'firebase/compat/firestore';
 import { interval } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { WindowService } from './window.service';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 var config = {
   apiKey: "AIzaSyAc9T6jV7QRc2sZMeQ3wAFxO2u-SH7dS_A",
@@ -41,7 +42,8 @@ export class PhoneNumberComponent implements OnInit {
     private ngZone: NgZone,
     private produtoService: ProdutoService,
     private windowService: WindowService,
-    private produtoListComponent: ProdutoListComponent
+    private produtoListComponent: ProdutoListComponent,
+    private navBarComponent: NavBarComponent,
   ) { }
 
   configCode = {
@@ -102,6 +104,7 @@ export class PhoneNumberComponent implements OnInit {
           environment.login = true;
           environment.telefone = this.phoneNumber;
           this.produtoListComponent.login = true;
+          this.navBarComponent.login = true;
           this.produtoListComponent.closePopup2();
           // this.produtoService.carrinhoCreate(produtctId);
           this.router.navigate(['carrinho']);

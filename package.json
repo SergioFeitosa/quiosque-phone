@@ -24,6 +24,7 @@
     "firebase": "^9.6.7",
     "ng-otp-input": "^1.8.1",
     "ngx-mask": "^13.1.1",
+    "quiosque-phone": "file:",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
