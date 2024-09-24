@@ -31,30 +31,31 @@ import { EntregaListComponent } from './entrega/entrega-list.component';
 import { EntregaUpdateComponent } from './entrega/entrega-update.component';
 import { CardapioPrincipalComponent } from './cardapioprincipal/cardapio-principal.component';
 import { Error404Component } from './Error404/error-404.component';
-import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ReplacePipe } from './pipe/replace.pipe';
-import { MatRadioModule } from '@angular/material/radio';
-
+//import { MatLegacyRadioModule as MatRadioModule } from '@angular/material';
+import {MatRadioModule} from '@angular/material/radio';
 import { StarComponent } from './star/star.component';
 import { ProdutoListComponent } from './produto/produto-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+//import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
-import { MatButtonModule } from '@angular/material/button';
+//import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import {MatButtonModule} from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CaminhoMenuComponent } from './caminho-menu/caminho-menu.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { MatIconModule } from '@angular/material/icon';
+import { NgxMaskDirective } from 'ngx-mask';
 
 import { NgOtpInputModule } from 'ng-otp-input';
 import { CarrinhoModule } from './carrinho/carrinho.module';
@@ -63,6 +64,8 @@ import { CarrinhoCreateComponent } from './carrinho/carrinho-create.component';
 import { CarrinhoReadComponent } from './carrinho/carrinho-read.component';
 import { CarrinhoUpdateComponent } from './carrinho/carrinho-update.component';
 import { CarrinhoDeleteComponent } from './carrinho/carrinho-delete.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -129,4 +132,60 @@ import { CarrinhoDeleteComponent } from './carrinho/carrinho-delete.component';
   bootstrap: [ AppComponent ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
+
+
+@NgModule({ declarations: [
+        AppComponent,
+        CarrinhoListComponent,
+        CarrinhoCreateComponent,
+        CarrinhoReadComponent,
+        CarrinhoUpdateComponent,
+        CarrinhoDeleteComponent,
+        CodeComponent,
+        DashboardComponent,
+        AppComponent,
+        ProdutoListComponent,
+        ProdutoReadComponent,
+        ProdutoCreateComponent,
+        StarComponent,
+        ReplacePipe,
+        NavBarComponent,
+        Error404Component,
+        CardapioPrincipalComponent,
+        PedidoCreateComponent,
+        PedidoDeleteComponent,
+        PedidoListComponent,
+        PedidoReadComponent,
+        PedidoUpdateComponent,
+        PedidoBarCreateComponent,
+        PedidoBarDeleteComponent,
+        PedidoBarListComponent,
+        PedidoBarReadComponent,
+        PedidoBarUpdateComponent,
+        EntregaListComponent,
+        EntregaUpdateComponent,
+        FechamentoListComponent,
+        ContaListComponent,
+        //CaminhoMenuComponent,
+        TelefoneValidacaoComponent,
+        LoginComponent
+    ],
+    bootstrap: [AppComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA], 
+    imports: [AppRoutingModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireAuthModule,
+        AngularFirestoreModule,
+        BrowserModule,
+        CarrinhoModule,
+        FormsModule,
+        ReactiveFormsModule,
+        ModalModule,
+        MatButtonModule,
+        MatGridListModule,
+        MatIconModule,
+        MatRadioModule,
+        NgxMaskDirective,
+        RouterModule,
+        NoopAnimationsModule], providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()] })
 export class AppModule { }

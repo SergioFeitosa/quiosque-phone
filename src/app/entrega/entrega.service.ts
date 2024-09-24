@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Entrega } from './entrega';
-import { MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar as MatSnackBar} from '@angular/material/snack-bar';
 @Injectable({
   providedIn: 'root',
 })

@@ -1,6 +1,5 @@
 import { environment } from 'src/environments/environment';
 import { Produto } from '../produto/produto';
-import { ActivatedRoute, Router } from '@angular/router';
 import { PedidoService } from '../pedido/pedido.service';
 import { Pedido } from '../pedido/pedido';
 import { Component, OnInit } from '@angular/core';
@@ -9,6 +8,8 @@ import { EntregaService } from '../entrega/entrega.service';
 import { interval, Subscription } from 'rxjs';
 import { Carrinho } from '../carrinho/carrinho';
 import { CarrinhoService } from '../carrinho/carrinho.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   templateUrl: './pedidoBar-list.component.html',
