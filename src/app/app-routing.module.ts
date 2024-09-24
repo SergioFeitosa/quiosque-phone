@@ -67,7 +67,7 @@ const routes: Routes = [
   },
   {
     path: 'produto/:categoryId', component: ProdutoListComponent
-  },
+  }, 
   {
     path: 'entrega/update/:id', component: EntregaUpdateComponent
   },
@@ -99,7 +99,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 

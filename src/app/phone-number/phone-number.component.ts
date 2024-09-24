@@ -2,29 +2,47 @@ import { ProdutoListComponent } from './../produto/produto-list.component';
 import { getAuth } from 'firebase/auth';
 import { ProdutoService } from './../produto/produto.service';
 import { Router } from '@angular/router';
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { interval } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { WindowService } from './window.service';
+<<<<<<< HEAD
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
+=======
+import { initializeApp } from "firebase/app";
+import { FormsModule } from '@angular/forms';
+import { NgClass, NgStyle } from '@angular/common';
+import { NgOtpInputComponent, NgOtpInputModule } from 'ng-otp-input';
+>>>>>>> 03559aa062de19118eb90a196cfe7ae843ca672c
 
-var config = {
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
+const firebaseConfig = {
   apiKey: "AIzaSyAc9T6jV7QRc2sZMeQ3wAFxO2u-SH7dS_A",
   authDomain: "quiosque-phone.firebaseapp.com",
   projectId: "quiosque-phone",
   storageBucket: "quiosque-phone.appspot.com",
   messagingSenderId: "977420644755",
   appId: "1:977420644755:web:d49bb641a0a9ea7cef3866"
-}
+};
+
 
 @Component({
   selector: 'app-phone-number',
+  standalone: true,
   templateUrl: './phone-number.component.html',
-  styleUrls: ['./phone-number.component.css']
+  styleUrls: ['./phone-number.component.css'],
+  imports: [
+    FormsModule,
+    NgClass, 
+    NgStyle,
+  ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ] 
 })
+
 export class PhoneNumberComponent implements OnInit {
 
   phoneNumber: any;
@@ -58,9 +76,14 @@ export class PhoneNumberComponent implements OnInit {
     },
   };
 
+
+
+  
+
   ngOnInit() {
 
-    firebase.initializeApp(config),
+    const app = initializeApp(firebaseConfig);
+    //firebase.initializeApp(firebaseConfig),
     this.verify = JSON.parse(localStorage.getItem('verificationId') || '{}');
     // console.log(this.verify);
     this.displayCode = 'none';
@@ -69,7 +92,7 @@ export class PhoneNumberComponent implements OnInit {
   getOTP() {
 
     this.reCaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', { size: 'invisible' })
-
+    
     firebase.
       auth().
       signInWithPhoneNumber(this.phoneNumber, this.reCaptchaVerifier).
@@ -85,7 +108,7 @@ export class PhoneNumberComponent implements OnInit {
   }
 
   onOtpChange(otp: string) {
-    this.otp = otp;
+    this.otp = otp; 
   }
 
   handleClick() {

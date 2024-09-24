@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Entrega } from './entrega';
-import { MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar as MatSnackBar} from '@angular/material/snack-bar';
 @Injectable({
   providedIn: 'root',
 })
@@ -20,7 +20,11 @@ export class EntregaService {
 
   // baseUrl = 'https://quiosque.sgpn.com.br/deliveries';
 
+<<<<<<< HEAD
   // baseUrl = 'https://sgpn.com.br/deliveries';
+=======
+  //baseUrl = 'https://sgpn.com.br/deliveries';
+>>>>>>> 03559aa062de19118eb90a196cfe7ae843ca672c
 
   // baseUrl = 'https://springboot-postgresheroku.herokuapp.com/api/v1/deliveries';
 

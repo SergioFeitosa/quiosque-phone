@@ -48,3 +48,10 @@ section {
 .content > mat-card {
   width: 200px;
 }
+
+.img {
+  width:25px;
+  height:25px;
+  color: red;
+}
+

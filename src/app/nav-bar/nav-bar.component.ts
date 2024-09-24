@@ -1,11 +1,6 @@
-import { PedidoService } from './../pedido/pedido.service';
+
 import { NavBarService } from './nav-bar.service';
-import { ContaService } from '../conta/conta.service';
-import { Pedido } from '../pedido/pedido';
 import { environment } from 'src/environments/environment';
-import { Conta } from '../conta/conta';
-import { ProdutoService } from '../produto/produto.service';
-import { Produto } from '../produto/produto';
 import { Component, NgZone, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';

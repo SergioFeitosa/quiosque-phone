@@ -21,7 +21,7 @@ export class CarrinhoCreateComponent implements OnInit {
 
   createCarrinho(): void {
     this.carrinhoService.create(this.carrinho).subscribe(() => {
-      this.carrinhoService.showMessage('Produto Criaado');
+      this.carrinhoService.showMessage('Produto Criado');
       this.router.navigate(['/carrinho']);
     });
   }

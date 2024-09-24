@@ -2,11 +2,20 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Pedido } from '../pedido/pedido';
 import { Produto } from '../produto/produto';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { RouterLinkActive, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-caminho-menu',
+  standalone: true,
+  
   templateUrl: './caminho-menu.component.html',
-  styleUrls: ['./caminho-menu.component.css']
+  styleUrls: ['./caminho-menu.component.css'],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  imports: [
+    RouterModule,
+    RouterLinkActive
+  ],
 })
 
 @Injectable({
@@ -33,7 +42,8 @@ export class CaminhoMenuComponent implements OnInit {
 
 
   constructor(
-  ) { }
+  ) { 
+  }
 
   ngOnInit(): void {
 
