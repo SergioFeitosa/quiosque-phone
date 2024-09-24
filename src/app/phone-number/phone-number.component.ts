@@ -9,21 +9,26 @@ import 'firebase/compat/firestore';
 import { interval } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { WindowService } from './window.service';
+import { initializeApp } from "firebase/app";
 
-var config = {
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
+const firebaseConfig = {
   apiKey: "AIzaSyAc9T6jV7QRc2sZMeQ3wAFxO2u-SH7dS_A",
   authDomain: "quiosque-phone.firebaseapp.com",
   projectId: "quiosque-phone",
   storageBucket: "quiosque-phone.appspot.com",
   messagingSenderId: "977420644755",
   appId: "1:977420644755:web:d49bb641a0a9ea7cef3866"
-}
+};
+
 
 @Component({
   selector: 'app-phone-number',
   templateUrl: './phone-number.component.html',
   styleUrls: ['./phone-number.component.css']
 })
+
 export class PhoneNumberComponent implements OnInit {
 
   phoneNumber: any;
@@ -56,9 +61,14 @@ export class PhoneNumberComponent implements OnInit {
     },
   };
 
+
+
+  
+
   ngOnInit() {
 
-    firebase.initializeApp(config),
+    const app = initializeApp(firebaseConfig);
+    //firebase.initializeApp(firebaseConfig),
     this.verify = JSON.parse(localStorage.getItem('verificationId') || '{}');
     // console.log(this.verify);
     this.displayCode = 'none';
@@ -67,7 +77,7 @@ export class PhoneNumberComponent implements OnInit {
   getOTP() {
 
     this.reCaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', { size: 'invisible' })
-
+    
     firebase.
       auth().
       signInWithPhoneNumber(this.phoneNumber, this.reCaptchaVerifier).

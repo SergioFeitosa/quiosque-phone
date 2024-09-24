@@ -64,8 +64,6 @@ import { CarrinhoReadComponent } from './carrinho/carrinho-read.component';
 import { CarrinhoUpdateComponent } from './carrinho/carrinho-update.component';
 import { CarrinhoDeleteComponent } from './carrinho/carrinho-delete.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

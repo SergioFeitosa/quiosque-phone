@@ -191,7 +191,7 @@ export class ProdutoListComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  closePopup2() {
+  closePopup2() { 
     this.displayStyle2 = 'none';
   }
 

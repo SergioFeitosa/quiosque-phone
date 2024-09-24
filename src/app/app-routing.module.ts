@@ -67,7 +67,7 @@ const routes: Routes = [
   },
   {
     path: 'produto/:categoryId', component: ProdutoListComponent
-  },
+  }, 
   {
     path: 'entrega/update/:id', component: EntregaUpdateComponent
   },
