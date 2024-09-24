@@ -1,5 +1,4 @@
 import { ProdutoListComponent } from './../produto/produto-list.component';
-import { getAuth } from 'firebase/auth';
 import { ProdutoService } from './../produto/produto.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, NgZone, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -9,16 +8,10 @@ import 'firebase/compat/firestore';
 import { interval } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { WindowService } from './window.service';
-<<<<<<< HEAD
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
-=======
+
 import { initializeApp } from "firebase/app";
 import { FormsModule } from '@angular/forms';
-import { NgClass, NgStyle } from '@angular/common';
-import { NgOtpInputComponent, NgOtpInputModule } from 'ng-otp-input';
->>>>>>> 03559aa062de19118eb90a196cfe7ae843ca672c
-
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAc9T6jV7QRc2sZMeQ3wAFxO2u-SH7dS_A",
@@ -37,8 +30,6 @@ const firebaseConfig = {
   styleUrls: ['./phone-number.component.css'],
   imports: [
     FormsModule,
-    NgClass, 
-    NgStyle,
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ] 
 })
@@ -58,8 +49,6 @@ export class PhoneNumberComponent implements OnInit {
   constructor(
     private router: Router,
     private ngZone: NgZone,
-    private produtoService: ProdutoService,
-    private windowService: WindowService,
     private produtoListComponent: ProdutoListComponent,
     private navBarComponent: NavBarComponent,
   ) { }

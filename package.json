@@ -27,11 +27,7 @@
     "body-parser": "^1.20.2",
     "firebase": "^9.6.7",
     "ng-otp-input": "^1.8.1",
-<<<<<<< HEAD
-    "ngx-mask": "^13.1.1",
-=======
     "ngx-mask": "^17.1.8",
->>>>>>> 03559aa062de19118eb90a196cfe7ae843ca672c
     "quiosque-phone": "file:",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
