@@ -4,9 +4,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 // firebase
 
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { environment } from '../environments/environment';
 
@@ -45,7 +42,6 @@ import { AppComponent } from './app.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 //import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { IConfig, NgxMaskModule } from 'ngx-mask';
 //import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import {MatButtonModule} from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -66,6 +62,8 @@ import { CarrinhoUpdateComponent } from './carrinho/carrinho-update.component';
 import { CarrinhoDeleteComponent } from './carrinho/carrinho-delete.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -109,7 +107,6 @@ import { RouterModule } from '@angular/router';
         RouterModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAuthModule,
-        AngularFirestoreModule,
         BrowserModule,
         CarrinhoModule,
         FormsModule,
@@ -123,7 +120,7 @@ import { RouterModule } from '@angular/router';
         NgMaterialModule,
         NgOtpInputModule,
         NgxMaskModule.forRoot(),
-        NoopAnimationsModule], providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()] })
+        NoopAnimationsModule], providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, provideHttpClient(withInterceptorsFromDi())] })
 
 
 @NgModule({ declarations: [

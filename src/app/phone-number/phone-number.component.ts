@@ -2,21 +2,17 @@ import { ProdutoListComponent } from './../produto/produto-list.component';
 import { getAuth } from 'firebase/auth';
 import { ProdutoService } from './../produto/produto.service';
 import { Router } from '@angular/router';
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { interval } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { WindowService } from './window.service';
-<<<<<<< HEAD
 import { initializeApp } from "firebase/app";
-=======
 import { FormsModule } from '@angular/forms';
 import { NgClass, NgStyle } from '@angular/common';
 import { NgOtpInputComponent, NgOtpInputModule } from 'ng-otp-input';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
->>>>>>> 5579d9cf31ca4e4143a2a614a88c2b0e96e2168d
 
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
