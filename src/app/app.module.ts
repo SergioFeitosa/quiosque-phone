@@ -31,7 +31,7 @@ import { Error404Component } from './Error404/error-404.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ReplacePipe } from './pipe/replace.pipe';
 //import { MatLegacyRadioModule as MatRadioModule } from '@angular/material';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 import { StarComponent } from './star/star.component';
 import { ProdutoListComponent } from './produto/produto-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -43,7 +43,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 //import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 //import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -67,7 +67,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({ declarations: [
         AppComponent,
-        PhoneNumberComponent,
         CarrinhoListComponent,
         CarrinhoCreateComponent,
         CarrinhoReadComponent,
@@ -98,7 +97,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
         EntregaUpdateComponent,
         FechamentoListComponent,
         ContaListComponent,
-        CaminhoMenuComponent,
         TelefoneValidacaoComponent,
         LoginComponent
     ],
@@ -119,7 +117,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
         NgOtpInputModule,
         NgMaterialModule,
         NgOtpInputModule,
-        NgxMaskModule.forRoot(),
         NoopAnimationsModule], providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, provideHttpClient(withInterceptorsFromDi())] })
 
 
@@ -164,7 +161,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     imports: [AppRoutingModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAuthModule,
-        AngularFirestoreModule,
         BrowserModule,
         CarrinhoModule,
         FormsModule,
