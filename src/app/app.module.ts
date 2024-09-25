@@ -46,7 +46,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CaminhoMenuComponent } from './caminho-menu/caminho-menu.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { LoginComponent } from './login/login.component';
@@ -101,12 +101,15 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
         LoginComponent
     ],
     bootstrap: [AppComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA], imports: [AppRoutingModule,
+    schemas: [CUSTOM_ELEMENTS_SCHEMA], 
+    exports: [ CommonModule ],
+    imports: [AppRoutingModule,
         RouterModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAuthModule,
         BrowserModule,
         CarrinhoModule,
+        CommonModule,
         FormsModule,
         ModalModule,
         MatButtonModule,
@@ -119,58 +122,4 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
         NgOtpInputModule,
         NoopAnimationsModule], providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, provideHttpClient(withInterceptorsFromDi())] })
 
-
-@NgModule({ declarations: [
-        AppComponent,
-        CarrinhoListComponent,
-        CarrinhoCreateComponent,
-        CarrinhoReadComponent,
-        CarrinhoUpdateComponent,
-        CarrinhoDeleteComponent,
-        CodeComponent,
-        DashboardComponent,
-        AppComponent,
-        ProdutoListComponent,
-        ProdutoReadComponent,
-        ProdutoCreateComponent,
-        StarComponent,
-        ReplacePipe,
-        NavBarComponent,
-        Error404Component,
-        CardapioPrincipalComponent,
-        PedidoCreateComponent,
-        PedidoDeleteComponent,
-        PedidoListComponent,
-        PedidoReadComponent,
-        PedidoUpdateComponent,
-        PedidoBarCreateComponent,
-        PedidoBarDeleteComponent,
-        PedidoBarListComponent,
-        PedidoBarReadComponent,
-        PedidoBarUpdateComponent,
-        EntregaListComponent,
-        EntregaUpdateComponent,
-        FechamentoListComponent,
-        ContaListComponent,
-        //CaminhoMenuComponent,
-        TelefoneValidacaoComponent,
-        LoginComponent
-    ],
-    bootstrap: [AppComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA], 
-    imports: [AppRoutingModule,
-        AngularFireModule.initializeApp(environment.firebase),
-        AngularFireAuthModule,
-        BrowserModule,
-        CarrinhoModule,
-        FormsModule,
-        ReactiveFormsModule,
-        ModalModule,
-        MatButtonModule,
-        MatGridListModule,
-        MatIconModule,
-        MatRadioModule,
-        NgxMaskDirective,
-        RouterModule,
-        NoopAnimationsModule], providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()] })
 export class AppModule { }
