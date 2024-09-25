@@ -20,11 +20,9 @@ export class EntregaService {
 
   // baseUrl = 'https://quiosque.sgpn.com.br/deliveries';
 
-<<<<<<< HEAD
   // baseUrl = 'https://sgpn.com.br/deliveries';
-=======
-  //baseUrl = 'https://sgpn.com.br/deliveries';
->>>>>>> 03559aa062de19118eb90a196cfe7ae843ca672c
+
+  // baseUrl = 'https://sgpn.com.br/deliveries';
 
   // baseUrl = 'https://springboot-postgresheroku.herokuapp.com/api/v1/deliveries';
 
